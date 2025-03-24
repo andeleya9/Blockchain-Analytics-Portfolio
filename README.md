@@ -29,7 +29,7 @@ Hello! I’m Andrea Domingo, a Data Analyst with over 6 years of experience in B
 **Deliverables:**
 - [Flipside Dashboard](https://flipsidecrypto.xyz/andeleya/airdrop-comparison-o5RkdI)
 - [Dune Dashboard](https://dune.com/andeleya/airdropcomparisonadl)
-- [Flipside SQL Query](flipside_airdrop.sql) *(upload your query if available)*
+- [Flipside SQL Query](flipside_airdrop.sql)
 - [Dune SQL Query](dune_airdrop.sql) *(upload your query if available)*
 
 **Reflection:** This project taught me the strengths and limitations of Flipside and Dune. Flipside is more intuitive for quick visualizations, while Dune offers greater flexibility for advanced analysis. In the future, I plan to dive deeper into price analysis by integrating more detailed historical data.
