@@ -31,21 +31,11 @@ Hello! I’m Andrea Domingo, a Data Analyst with over 6 years of experience in B
 - [Dune Dashboard](https://dune.com/andeleya/airdropcomparisonadl)
 - [Flipside SQL Query](flipside_airdrop.sql) *(upload your query if available)*
 - [Dune SQL Query](dune_airdrop.sql) *(upload your query if available)*
-- **Screenshots:** *(upload screenshots if available)*
-  - ![Flipside Dashboard](screenshots/flipside_airdrop.png)
-  - ![Dune Dashboard](screenshots/dune_airdrop.png)
 
 **Reflection:** This project taught me the strengths and limitations of Flipside and Dune. Flipside is more intuitive for quick visualizations, while Dune offers greater flexibility for advanced analysis. In the future, I plan to dive deeper into price analysis by integrating more detailed historical data.
 
 ## Future Projects
 - Track the destinations of tokens distributed in the Arbitrum and Optimism airdrops to analyze transfer patterns.
-- Analyze swap volume on Uniswap to understand post-airdrop activity.
-- Explore fund flows in stablecoins like USDC to identify trends in DeFi.
-
-## Contact
-📧 [LinkedIn](https://linkedin.com/in/[your-username])  
-🐦 [X](https://x.com/[your-username])  
-📩 [Email](mailto:your-email@domain.com)
 
 ## Feedback?
 I’m learning and growing in blockchain analytics. If you have suggestions or would like to collaborate on a project, feel free to reach out! 🚀
