@@ -145,15 +145,15 @@ arb_totals AS (
   LEFT JOIN transfers_out t ON a.wallet = t.wallet
 )
 SELECT 
-  SUM(initial_amount) AS total_arb_distributed,                        -- Total distribuido
-  SUM(sold_amount) AS total_arb_sold,                                 -- Total vendido (limitado al airdrop)
+  SUM(initial_amount) AS total_arb_distributed,                       
+  SUM(sold_amount) AS total_arb_sold,                                
   SUM(CASE WHEN sold_amount < initial_amount 
            THEN initial_amount - sold_amount 
-           ELSE 0 END) AS total_arb_not_sold,                        -- Total no vendido
-  (SUM(sold_amount) / SUM(initial_amount)) * 100 AS pct_sold,         -- Porcentaje vendido
+           ELSE 0 END) AS total_arb_not_sold,                        
+  (SUM(sold_amount) / SUM(initial_amount)) * 100 AS pct_sold,         
   (SUM(CASE WHEN sold_amount < initial_amount 
             THEN initial_amount - sold_amount 
-            ELSE 0 END) / SUM(initial_amount)) * 100 AS pct_not_sold  -- Porcentaje no vendido
+            ELSE 0 END) / SUM(initial_amount)) * 100 AS pct_not_sold 
 FROM arb_totals;
 
 -- Flipside Query 6: Behaviour Optimism airdropped 1 month
@@ -184,15 +184,15 @@ op_totals AS (
   LEFT JOIN transfers_out t ON a.wallet = t.wallet
 )
 SELECT 
-  SUM(initial_amount) AS total_op_distributed,                        -- Total distribuido
-  SUM(sold_amount) AS total_op_sold,                                 -- Total vendido (limitado al airdrop)
+  SUM(initial_amount) AS total_op_distributed,                       
+  SUM(sold_amount) AS total_op_sold,                                 
   SUM(CASE WHEN sold_amount < initial_amount 
            THEN initial_amount - sold_amount 
-           ELSE 0 END) AS total_op_not_sold,                        -- Total no vendido
-  (SUM(sold_amount) / SUM(initial_amount)) * 100 AS pct_sold,        -- Porcentaje vendido
+           ELSE 0 END) AS total_op_not_sold,                        
+  (SUM(sold_amount) / SUM(initial_amount)) * 100 AS pct_sold,       
   (SUM(CASE WHEN sold_amount < initial_amount 
             THEN initial_amount - sold_amount 
-            ELSE 0 END) / SUM(initial_amount)) * 100 AS pct_not_sold -- Porcentaje no vendido
+            ELSE 0 END) / SUM(initial_amount)) * 100 AS pct_not_sold
 FROM op_totals;
 
 -- Flipside Query 7: Evolution ARB price
@@ -228,8 +228,8 @@ ORDER BY price_date;
 SELECT 
   CAST(block_timestamp AS DATE) AS tx_date,
   COUNT(*) AS tx_count,
-  SUM(gas_used * gas_price_paid) / 1e18 AS total_gas_cost_eth, -- Costo real en ETH
-  AVG(gas_price_paid) / 1e9 AS avg_gas_price_gwei,            -- Precio promedio en Gwei
+  SUM(gas_used * gas_price_paid) / 1e18 AS total_gas_cost_eth, 
+  AVG(gas_price_paid) / 1e9 AS avg_gas_price_gwei,            
   COUNT(DISTINCT from_address) AS unique_wallets
 FROM arbitrum.core.fact_transactions
 WHERE block_timestamp BETWEEN '2023-03-01 00:00:00' AND '2023-04-23 23:59:59'
@@ -241,8 +241,8 @@ ORDER BY tx_date;
 SELECT 
   CAST(block_timestamp AS DATE) AS tx_date,
   COUNT(*) AS tx_count,
-  SUM(gas_used * EFFECTIVE_GAS_PRICE) / 1e18 AS total_gas_cost_eth, -- Costo real en ETH
-  AVG(EFFECTIVE_GAS_PRICE) / 1e9 AS avg_gas_price_gwei,            -- Precio promedio en Gwei
+  SUM(gas_used * EFFECTIVE_GAS_PRICE) / 1e18 AS total_gas_cost_eth, 
+  AVG(EFFECTIVE_GAS_PRICE) / 1e9 AS avg_gas_price_gwei,            
   COUNT(DISTINCT from_address) AS unique_wallets
 FROM optimism.core.fact_transactions
 WHERE block_timestamp BETWEEN '2022-05-01 00:00:00' AND '2022-06-23 23:59:59'
