@@ -2,7 +2,7 @@
 
 Hello! I’m Andrea Domingo, a Data Analyst with over 6 years of experience in Business Intelligence, SQL and data visualization. I’m passionate about blockchain technology and Web3, and I’m diving into these fields by exploring blockchain data analytics through hands-on projects. This portfolio showcases my work in data modeling, actionable insights and my growing expertise in decentralized technologies.
 
-📧 [LinkedIn](https://www.linkedin.com/in/adomingoleon/)) | 📩 [Email](mailto:adomingoleon@gmail.com)
+📧 [LinkedIn](https://www.linkedin.com/in/adomingoleon/) | 📩 [Email](mailto:adomingoleon@gmail.com)
 
 ## Technical Skills
 - **Languages:** SQL, Python (basic)
