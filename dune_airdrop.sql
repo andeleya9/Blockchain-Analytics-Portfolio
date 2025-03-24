@@ -41,10 +41,10 @@ WITH airdrop_txs AS (
     tokens.transfers
   WHERE
     block_time BETWEEN TRY_CAST('2022-05-15 00:00:00 UTC' AS TIMESTAMP) 
-      AND TRY_CAST('2022-06-11 00:00:00 UTC' AS TIMESTAMP) -- Período ajustado para Optimism
+      AND TRY_CAST('2022-06-11 00:00:00 UTC' AS TIMESTAMP) 
     AND blockchain = 'optimism'
-    AND contract_address = 0x4200000000000000000000000000000000000042 -- Token OP
-    AND "from" = 0xfedfaf1a10335448b7fa0268f56d2b44dbd357de -- Dirección del distribuidor
+    AND contract_address = 0x4200000000000000000000000000000000000042 
+    AND "from" = 0xfedfaf1a10335448b7fa0268f56d2b44dbd357de 
   GROUP BY
     1
 ),
@@ -89,9 +89,9 @@ WITH airdrop_transactions AS (
     ON s.evt_tx_hash = r.evt_tx_hash
   WHERE 
     s.evt_block_time BETWEEN TRY_CAST('2023-03-23 00:00:00 UTC' AS TIMESTAMP) 
-      AND TRY_CAST('2023-04-11 23:59:59 UTC' AS TIMESTAMP) -- Período del airdrop
-    AND s.token_address = 0x912ce59144191c1204e64559fe8253a0e49e6548 -- Token ARB
-    AND s.wallet_address = 0x67a24ce4321ab3af51c2d0a4801c3e111d88c9d9 -- Dirección del distribuidor
+      AND TRY_CAST('2023-04-11 23:59:59 UTC' AS TIMESTAMP) 
+    AND s.token_address = 0x912ce59144191c1204e64559fe8253a0e49e6548 
+    AND s.wallet_address = 0x67a24ce4321ab3af51c2d0a4801c3e111d88c9d9 
     AND s.transfer_type = 'send'
     AND r.transfer_type = 'receive'
 ),
@@ -114,8 +114,8 @@ transfers_out AS (
     transfers_arbitrum.erc20
   WHERE 
     evt_block_time BETWEEN TRY_CAST('2023-03-23 00:00:00 UTC' AS TIMESTAMP) 
-      AND TRY_CAST('2023-04-23 23:59:59 UTC' AS TIMESTAMP) -- Período post-airdrop
-    AND token_address = 0x912ce59144191c1204e64559fe8253a0e49e6548 -- Token ARB
+      AND TRY_CAST('2023-04-23 23:59:59 UTC' AS TIMESTAMP) 
+    AND token_address = 0x912ce59144191c1204e64559fe8253a0e49e6548 
     AND wallet_address IN (SELECT wallet FROM airdrop_recipients)
     AND transfer_type = 'send'
     AND NOT (wallet_address = 0x67a24ce4321ab3af51c2d0a4801c3e111d88c9d9)
@@ -474,8 +474,8 @@ ORDER BY
 SELECT 
   CAST(block_time AS DATE) AS tx_date,
   COUNT(*) AS tx_count,
-  SUM(gas_used * gas_price) / 1e18 AS total_gas_cost_eth, -- Costo real en ETH
-  AVG(gas_price) / 1e9 AS avg_gas_price_gwei,            -- Precio promedio en Gwei
+  SUM(gas_used * gas_price) / 1e18 AS total_gas_cost_eth, 
+  AVG(gas_price) / 1e9 AS avg_gas_price_gwei,           
   COUNT(DISTINCT "from") AS unique_wallets
 FROM 
   arbitrum.transactions
@@ -492,8 +492,8 @@ ORDER BY
 SELECT 
   CAST(block_time AS DATE) AS tx_date,
   COUNT(*) AS tx_count,
-  SUM(gas_used * gas_price) / 1e18 AS total_gas_cost_eth, -- Costo real en ETH
-  AVG(gas_price) / 1e9 AS avg_gas_price_gwei,            -- Precio promedio en Gwei
+  SUM(gas_used * gas_price) / 1e18 AS total_gas_cost_eth, 
+  AVG(gas_price) / 1e9 AS avg_gas_price_gwei,           
   COUNT(DISTINCT "from") AS unique_wallets
 FROM 
   optimism.transactions
